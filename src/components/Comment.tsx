@@ -1,7 +1,7 @@
 "use client";
 
 import { commentProps, ReplyProps } from "@/libs/types";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import Reply from "./Reply";
 
 export default function Comment({
@@ -46,6 +46,7 @@ export default function Comment({
         {replies ? <div className="d">
               {replies.map((reply : ReplyProps) => (
                 <Reply
+                  key={reply.username}
                   userImagePath={reply.userImagePath}
                   username={reply.username}
                   replyText={reply.replyText}
