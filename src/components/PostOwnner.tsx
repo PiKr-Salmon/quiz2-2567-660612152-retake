@@ -20,7 +20,7 @@ export default function PostOwnner({profileImgPath, profile, post, postlikes, /*
 
     <div className="d-flex align-items-center gap-1">
       <img src="/like.svg" width={20}></img>
-      <span className="text-muted">{postlikes} คน</span>
+      <span className="text-muted, white">{postlikes} คน</span>
     </div>
     <hr className="m-0 border" />
   </div>

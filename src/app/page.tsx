@@ -3,6 +3,7 @@
 import PostOwnner from "@/components/PostOwnner";
 import Comment from "@/components/Comment";
 import { comments } from "@/libs/comments";
+import { commentProps } from "@/libs/types";
 
 export default function Home() {
 
@@ -76,7 +77,7 @@ export default function Home() {
         </div>*/}
 
         {/* map-loop render Comment component here */}
-        {comments.map((comment) => (
+        {comments.map((comment : commentProps) => (
             <Comment
               userImagePath={comment.userImagePath} 
               username={comment.username}  

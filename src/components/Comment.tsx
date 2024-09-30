@@ -1,6 +1,6 @@
 "use client";
 
-import { commentProps } from "@/libs/types";
+import { commentProps, ReplyProps } from "@/libs/types";
 import { useState, useEffect } from "react";
 import Reply from "./Reply";
 
@@ -39,12 +39,12 @@ export default function Comment({
             <span>{commentText}</span>
             {islikes ? <div className="d-flex align-items-center gap-1">
               <img src="/like.svg" width={20}></img>
-              <span className="text-muted">{likeNum} คน</span>
+              <span className="text-muted, white">{likeNum} คน</span>
             </div> : ""}
           </div>
         </div>
         {replies ? <div className="d">
-              {replies.map((reply) => (
+              {replies.map((reply : ReplyProps) => (
                 <Reply
                   userImagePath={reply.userImagePath}
                   username={reply.username}
