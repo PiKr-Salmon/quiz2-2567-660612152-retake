@@ -1,15 +1,58 @@
 "use client";
+
+import { commentProps } from "@/libs/types";
+import { useState, useEffect } from "react";
+import Reply from "./Reply";
+
 export default function Comment({
   userImagePath,
   username,
   commentText,
   likeNum,
   replies,
-}) {
+} : commentProps ){
+
+  const [islikes,setIslikes] = useState(false);
+
+  useEffect(() => {
+  if(likeNum !== 0){
+    setIslikes(!islikes);
+  }
+  } , []);
+
   return (
     <div>
-      your code for Comment component here ...
-      {/* You can use map-loop to render Reply component here */}
+      <div className="d-flex gap-2 my-2">
+          <img
+            src={userImagePath}
+            width="48"
+            height="48"
+            className="rounded-circle"
+            style={{ objectFit: "cover" }}
+          />
+          <div
+            className="rounded rounded-3 p-2"
+            style={{ backgroundColor: "#454952 " }}
+          >
+            <span className="fw-semibold">{username}</span>
+            <br />
+            <span>{commentText}</span>
+            {islikes ? <div className="d-flex align-items-center gap-1">
+              <img src="/like.svg" width={20}></img>
+              <span className="text-muted">{likeNum} คน</span>
+            </div> : ""}
+          </div>
+        </div>
+        {replies ? <div className="d">
+              {replies.map((reply) => (
+                <Reply
+                  userImagePath={reply.userImagePath}
+                  username={reply.username}
+                  replyText={reply.replyText}
+                  likeNum={reply.likeNum}
+                />
+              ))}
+            </div> : ""}
     </div>
   );
 }
