@@ -45,14 +45,14 @@ export default function Comment({
         </div>
         {replies ? <div className="d">
               {replies.map((reply : ReplyProps) => (
-                <div key={reply.username}>
+                <li key={reply.username.length}>
                 <Reply
                   userImagePath={reply.userImagePath}
                   username={reply.username}
                   replyText={reply.replyText}
                   likeNum={reply.likeNum}
                 />
-                </div>
+                </li>
               ))}
             </div> : ""}
     </div>

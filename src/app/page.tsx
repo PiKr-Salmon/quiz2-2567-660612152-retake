@@ -78,7 +78,7 @@ export default function Home() {
 
         {/* map-loop render Comment component here */}
         {comments.map((comment : commentProps) => (
-          <div key={comment.username}>
+          <div key={comment.username.length}>
             <Comment
               userImagePath={comment.userImagePath} 
               username={comment.username}  
